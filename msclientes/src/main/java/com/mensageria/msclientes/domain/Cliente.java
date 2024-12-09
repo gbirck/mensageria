@@ -2,11 +2,9 @@ package com.mensageria.msclientes.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@NoArgsConstructor
 public class Cliente {
 
     @Id
@@ -18,6 +16,9 @@ public class Cliente {
     private String nome;
     @Column(nullable = false)
     private Integer idade;
+
+    public Cliente() {
+    }
 
     public Cliente(String cpf, String nome, Integer idade) {
         this.cpf = cpf;
