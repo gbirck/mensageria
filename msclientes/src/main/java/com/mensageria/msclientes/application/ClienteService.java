@@ -21,7 +21,7 @@ public class ClienteService {
         return repository.save(cliente);
     }
 
-    public Optional<Cliente> findByCpf(String cpf){
+    public Optional<Cliente> getByCpf(String cpf){
         return repository.findByCpf(cpf);
     }
 }

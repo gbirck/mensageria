@@ -10,11 +10,11 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
+    @Column
     private String cpf;
-    @Column(nullable = false)
+    @Column
     private String nome;
-    @Column(nullable = false)
+    @Column
     private Integer idade;
 
     public Cliente() {
