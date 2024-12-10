@@ -2,6 +2,7 @@ package com.mensageria.msclientes.application;
 
 import com.mensageria.msclientes.application.representation.ClienteSaveRequest;
 import com.mensageria.msclientes.domain.Cliente;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -11,6 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("clientes")
+@Slf4j
 public class ClienteController {
 
     private final ClienteService service;
