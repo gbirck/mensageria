@@ -19,17 +19,12 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class AvaliadorCreditoService {
 
     private final ClienteResourceClient clientesClient;
     private final CartoesResourceClient cartoesClient;
     private final SolicitacaoEmissaoCartaoPublisher emissaoCartaoPublisher;
-
-    public AvaliadorCreditoService(ClienteResourceClient clientesClient, CartoesResourceClient cartoesClient, SolicitacaoEmissaoCartaoPublisher emissaoCartaoPublisher) {
-        this.clientesClient = clientesClient;
-        this.cartoesClient = cartoesClient;
-        this.emissaoCartaoPublisher = emissaoCartaoPublisher;
-    }
 
     public SituacaoCliente obterSituacaoCliente(String cpf)
             throws DadosClienteNotFoundException, ErroComunicacaoMicroservicesException{

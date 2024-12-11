@@ -1,35 +1,32 @@
 package com.mensageria.msclientes.application;
 
 import com.mensageria.msclientes.application.representation.ClienteSaveRequest;
-import com.mensageria.msclientes.domain.Cliente;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("clientes")
+@RequiredArgsConstructor
 @Slf4j
-public class ClienteController {
+public class ClientesResource {
 
     private final ClienteService service;
 
-    public ClienteController(ClienteService service) {
-        this.service = service;
-    }
-
     @GetMapping
     public String status(){
+        log.info("Obtendo o status do microservice de clientes");
         return "ok";
     }
 
     @PostMapping
-    public ResponseEntity insert(@RequestBody ClienteSaveRequest request){
-        Cliente cliente = request.toModel();
-        service.insert(cliente);
+    public ResponseEntity save(@RequestBody ClienteSaveRequest request){
+        var cliente = request.toModel();
+        service.save(cliente);
         URI headerLocation = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .query("cpf={cpf}")
@@ -39,8 +36,8 @@ public class ClienteController {
     }
 
     @GetMapping(params = "cpf")
-    public ResponseEntity findByCpf(@RequestParam("cpf") String cpf){
-        Optional<Cliente> cliente = service.getByCpf(cpf);
+    public ResponseEntity dadosCliente(@RequestParam("cpf") String cpf){
+        var cliente = service.getByCPF(cpf);
         if(cliente.isEmpty()){
             return ResponseEntity.notFound().build();
         }

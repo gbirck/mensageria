@@ -4,19 +4,17 @@ import com.mensageria.msavaliadorcredito.application.ex.DadosClienteNotFoundExce
 import com.mensageria.msavaliadorcredito.application.ex.ErroComunicacaoMicroservicesException;
 import com.mensageria.msavaliadorcredito.application.ex.ErroSolicitacaoCartaoException;
 import com.mensageria.msavaliadorcredito.domain.model.*;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("avaliacoes-credito")
+@RequiredArgsConstructor
 public class AvaliadorCreditoController {
 
     private final AvaliadorCreditoService avaliadorCreditoService;
-
-    public AvaliadorCreditoController(AvaliadorCreditoService avaliadorCreditoService) {
-        this.avaliadorCreditoService = avaliadorCreditoService;
-    }
 
     @GetMapping
     public String status(){

@@ -3,20 +3,17 @@ package com.mensageria.msavaliadorcredito.infra.mqueue;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mensageria.msavaliadorcredito.domain.model.DadosSolicitacaoEmissaoCartao;
+import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class SolicitacaoEmissaoCartaoPublisher {
 
     private final RabbitTemplate rabbitTemplate;
     private final Queue queueEmissaoCartoes;
-
-    public SolicitacaoEmissaoCartaoPublisher(RabbitTemplate rabbitTemplate, Queue queueEmissaoCartoes) {
-        this.rabbitTemplate = rabbitTemplate;
-        this.queueEmissaoCartoes = queueEmissaoCartoes;
-    }
 
     public void solicitarCartao(DadosSolicitacaoEmissaoCartao dados) throws JsonProcessingException {
         var json = convertIntoJson(dados);

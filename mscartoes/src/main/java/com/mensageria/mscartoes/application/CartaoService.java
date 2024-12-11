@@ -2,6 +2,7 @@ package com.mensageria.mscartoes.application;
 
 import com.mensageria.mscartoes.domain.Cartao;
 import com.mensageria.mscartoes.infra.repository.CartaoRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -9,16 +10,13 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class CartaoService {
 
     private final CartaoRepository repository;
 
-    public CartaoService(CartaoRepository repository) {
-        this.repository = repository;
-    }
-
     @Transactional
-    public Cartao insert(Cartao cartao){
+    public Cartao save(Cartao cartao){
         return repository.save(cartao);
     }
 

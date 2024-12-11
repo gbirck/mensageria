@@ -1,21 +1,17 @@
 package com.mensageria.msavaliadorcredito.domain.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class SituacaoCliente {
     private DadosCliente cliente;
     private List<CartaoCliente> cartoes;
-
-    public SituacaoCliente(DadosCliente cliente, List<CartaoCliente> cartoes) {
-        this.cliente = cliente;
-        this.cartoes = cartoes;
-    }
-
-    public SituacaoCliente() {
-    }
 }

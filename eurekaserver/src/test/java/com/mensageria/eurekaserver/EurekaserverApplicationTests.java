@@ -1,10 +1,10 @@
-package com.mesageria.mscloudgateway;
+package com.mensageria.eurekaserver;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MscloudgatewayApplicationTests {
+class EurekaserverApplicationTests {
 
 	@Test
 	void contextLoads() {

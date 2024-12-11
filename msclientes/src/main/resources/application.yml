@@ -1,11 +1,6 @@
 spring:
   application:
     name: msclientes
-  datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:msclient
-    username: pb
-    password:
 
 server:
   port: 0
